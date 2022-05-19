@@ -16,4 +16,4 @@ jobs:
         with:
           node-version: 14.x
       - name: Print env
-        run: node -p "[process.env.GITHUB_REF_TYPE, process.env.GITHUB_REF_NAME]"
+        run: node -e "process.env.GITHUB_REF_NAME !== 'main' && process.exit(1)"
